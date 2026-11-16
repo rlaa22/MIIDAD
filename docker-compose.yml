@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: midad-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: midad_db
+      POSTGRES_USER: midad_user
+      POSTGRES_PASSWORD: midad_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - midad_data:/var/lib/postgresql/data
+
+volumes:
+  midad_data:
